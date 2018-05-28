@@ -4,8 +4,9 @@ This project uses both [cumulus-ecs-task-python](https://github.com/cumulus-nasa
 
 ## Use
 
+See [cumulus-ecs-task-python](https://github.com/cumulus-nasa/cumulus-ecs-task-python)
 
-## Build
+## Build & Push
 
 ```
 export VERSION=0.0.0
@@ -16,3 +17,14 @@ docker tag cumuluss/cumulus-geolambda:$VERSION cumuluss/cumulus-geolambda:$VERSI
 docker push cumuluss/cumulus-geolambda:$VERSION
 ```
 
+## Testing
+
+```
+docker run -it \
+  -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+  cumuluss/cumulus-geolambda:$VERSION \
+  cumulus-ecs-task \
+  --activityArn arn:aws:states:us-east-1:433612427488:activity:cce-DownloadTiles-Activity \
+  --lambdaArn arn:aws:lambda:us-east-1:433612427488:function:cce-ViirsProcessing
+```
