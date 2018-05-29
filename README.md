@@ -9,7 +9,7 @@ See [cumulus-ecs-task-python](https://github.com/cumulus-nasa/cumulus-ecs-task-p
 ## Build & Push
 
 ```
-export VERSION=0.0.1
+export VERSION=0.0.2
 docker build -t cumuluss/cumulus-geolambda:$VERSION .
 
 # docker login

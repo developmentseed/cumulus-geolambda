@@ -24,6 +24,8 @@ RUN \
   pip install numpy; \
   pip3 install numpy;
 
+RUN pip3 install -r requirements.txt
+
 RUN git clone https://github.com/developmentseed/geolambda
 RUN cp geolambda/bin/* /usr/local/bin/
 RUN cp geolambda/etc/* /usr/local/etc/
