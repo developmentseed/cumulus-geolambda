@@ -88,3 +88,4 @@ RUN \
         python3 setup.py install; \
         cd $BUILD; rm -rf gdal-$GDAL_VERSION*
 
+WORKDIR /code
