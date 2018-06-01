@@ -22,10 +22,8 @@ def get_lambda_function(lambda_arn):
   z = zipfile.ZipFile(io.BytesIO(r.content))
   z.extractall('.')
   module_str, function_str = lambda_function['Configuration']['Handler'].split('.')
-  #sys.path.insert(0, '../task')
   task = __import__(module_str)
-  module = getattr(task, module_str)
-  return getattr(module, function_str)
+  return getattr(task, function_str)
 
 def step_function_handler(handler, activity_arn, lambda_arn):
     """ This function polls AWS Step Functions for new activities
